@@ -23,7 +23,7 @@ const shareToTikTok = () => {
 
 // ============ NAVBAR ============
 function Navbar() {
-  return (
+  return(
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-red-900/30">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -32,10 +32,10 @@ function Navbar() {
         </div>
         
         <div className="hidden md:flex items-center gap-8">
-          <button className="text-gray-300 hover:text-white transition-colors font-medium">Home</button>
-          <button className="text-gray-300 hover:text-white transition-colors font-medium">The Games</button>
-          <button className="text-gray-300 hover:text-white transition-colors font-medium">The Vault</button>
-          <button className="text-gray-300 hover:text-white transition-colors font-medium">Community</button>
+          <button onClick={() => scrollToSection("hero")} className="text-gray-300 hover:text-white transition-colors font-medium">Home</button>
+          <button onClick={() => scrollToSection("games")} className="text-gray-300 hover:text-white transition-colors font-medium">The Games</button>
+          <button onClick={() => scrollToSection("vision")} className="text-gray-300 hover:text-white transition-colors font-medium">The Vault</button>
+          <button onClick={() => scrollToSection("community")} className="text-gray-300 hover:text-white transition-colors font-medium">Community</button>
         </div>
 
         <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 border border-red-600">
@@ -52,8 +52,8 @@ function Hero() {
   const scrollToGames = () => document.getElementById('games')?.scrollIntoView({ behavior: 'smooth' });
   const scrollToVault = () => document.getElementById('vision')?.scrollIntoView({ behavior: 'smooth' });
 
-  return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-black">
+  return(
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-black">
       {/* Red glow effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl"></div>
@@ -87,7 +87,7 @@ function GamesSection() {
     { name: 'NBA 2K20', year: '2019', tagline: 'The final masterpiece', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&q=80' },
   ];
 
-  return (
+  return(
     <section id="games" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-red-600 text-center mb-4">The Games</h2>
@@ -112,7 +112,7 @@ function GamesSection() {
 
 // ============ VISION SECTION ============
 function VisionSection() {
-  return (
+  return(
     <section id="vision" className="py-20 bg-black">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-red-600 text-center mb-12">One Vault. Four Eras. Infinite Play.</h2>
@@ -194,17 +194,17 @@ function VisionSection() {
 // ============ VOTING SECTION ============
 function VotingSection() {
   const [voted, setVoted] = useState(null);
-  const votes = { '2K15': 3, '2K16': 1, '2K17': 0, '2K20': 1 };
+  const votes = { '2K15': 0, '2K16': 0, '2K17': 0, '2K20': 0 };
   const total = Object.values(votes).reduce((a, b) => a + b, 0);
 
-  return (
+  return(
     <section className="py-20 bg-black">
       <div className="max-w-3xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-red-600 text-center mb-8">Which Era Do You Want Back Most?</h2>
         <div className="space-y-4">
           {Object.entries(votes).map(([game, count]) => {
             const pct = Math.round((count / total) * 100);
-            return (
+            return(
               <button key={game} onClick={() => setVoted(game)} className={`w-full p-4 rounded-xl border transition-all text-left ${voted === game ? 'bg-red-600/20 border-red-500' : 'bg-black border-red-900/30 hover:border-red-600'}`}>
                 <div className="flex justify-between mb-2"><span className="text-red-500 font-semibold">{game}</span><span className="text-red-400">{count} votes</span></div>
                 <div className="h-2 bg-black rounded-full border border-red-900/30"><div className={`h-full rounded-full transition-all ${voted === game ? 'bg-red-600' : 'bg-red-900'}`} style={{ width: `${pct}%` }}></div></div>
@@ -223,8 +223,8 @@ function CommunitySection() {
   const [email, setEmail] = useState('');
   const [sub, setSub] = useState(false);
 
-  return (
-    <section className="py-20 bg-black">
+  return(
+    <section id="community" className="py-20 bg-black">
       <div className="max-w-3xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-red-600 text-center mb-8">Join the Movement</h2>
         <div className="bg-black rounded-2xl p-8 border border-red-900/30 text-center">
@@ -242,7 +242,7 @@ function CommunitySection() {
 
 // ============ SHARE SECTION ============
 function ShareSection() {
-  return (
+  return(
     <section className="py-16 bg-black border-t border-red-900/30">
       <div className="max-w-3xl mx-auto px-4 text-center">
         <h2 className="text-2xl font-bold text-red-600 mb-4">Share the Vision</h2>
@@ -282,12 +282,12 @@ function ShareSection() {
 
 // ============ FOOTER ============
 function Footer() {
-  return (
+  return(
     <footer className="py-8 bg-black border-t border-red-900/30">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2"><span className="text-xl font-bold text-red-600">2K</span><span className="text-lg font-bold text-red-600">Legacy Vault</span></div>
         <div className="flex gap-6 text-red-500 text-sm">
-          <button className="hover:text-white">Home</button><button className="hover:text-white">Games</button><button className="hover:text-white">Vault</button><button className="hover:text-white">Community</button>
+          <button onClick={() => window.scrollTo({top: 0, behavior: "smooth"})} className="hover:text-white transition-colors">Home</button><button onClick={() => document.getElementById("games")?.scrollIntoView({behavior: "smooth"})} className="hover:text-white transition-colors">Games</button><button onClick={() => document.getElementById("vision")?.scrollIntoView({behavior: "smooth"})} className="hover:text-white transition-colors">Vault</button><button onClick={() => document.getElementById("community")?.scrollIntoView({behavior: "smooth"})} className="hover:text-white transition-colors">Community</button>
         </div>
       </div>
     </footer>
@@ -309,7 +309,7 @@ function Chatbot() {
     setTimeout(() => setMsgs(m => [...m, { role: 'assistant', content: 'The Legacy Vault is a revolutionary concept that would allow players to access classic NBA 2K games online directly within modern titles.' }]), 1000);
   };
 
-  return (
+  return(
     <>
       <button onClick={() => setIsOpen(!isOpen)} className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-red-600 shadow-lg flex items-center justify-center transition-all hover:scale-110 ${isOpen ? 'rotate-45' : ''}`}>
         {isOpen ? <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg> : <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>}
@@ -333,7 +333,7 @@ function Chatbot() {
 
 // ============ HOME ============
 function Home() {
-  return (
+  return(
     <div className="min-h-screen bg-black text-white">
       <Navbar />
       <Hero />

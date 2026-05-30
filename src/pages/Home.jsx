@@ -3,21 +3,21 @@ import React, { useState } from 'react';
 // ============ NAVBAR ============
 function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-gray-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-red-900/30">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-2xl font-bold text-red-600">2K</span>
-          <span className="text-xl font-semibold text-white">Legacy Vault</span>
+          <span className="text-xl font-bold text-red-600">Legacy Vault</span>
         </div>
         
         <div className="hidden md:flex items-center gap-8">
-          <button className="text-gray-400 hover:text-white transition-colors font-medium">Home</button>
-          <button className="text-gray-400 hover:text-white transition-colors font-medium">The Games</button>
-          <button className="text-gray-400 hover:text-white transition-colors font-medium">The Vault</button>
-          <button className="text-gray-400 hover:text-white transition-colors font-medium">Community</button>
+          <button className="text-red-500 hover:text-white transition-colors font-medium">Home</button>
+          <button className="text-red-500 hover:text-white transition-colors font-medium">The Games</button>
+          <button className="text-red-500 hover:text-white transition-colors font-medium">The Vault</button>
+          <button className="text-red-500 hover:text-white transition-colors font-medium">Community</button>
         </div>
 
-        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 border border-red-600/50">
+        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 border border-red-600">
           <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
           <span className="text-red-500 text-sm font-medium">LIVE</span>
         </div>
@@ -34,22 +34,22 @@ function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-black">
       {/* Red glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl"></div>
 
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">THE VAULT AWAITS</h1>
-        <p className="text-xl md:text-2xl text-gray-400 mb-2">2K15 • 2K16 • 2K17 • 2K20 — All in one place.</p>
-        <p className="text-lg md:text-xl text-red-600 font-semibold mb-8">Persistent online. No resets. Ever.</p>
+        <h1 className="text-5xl md:text-7xl font-bold text-red-600 mb-4 tracking-tight">THE VAULT AWAITS</h1>
+        <p className="text-xl md:text-2xl text-red-400 mb-2">2K15 • 2K16 • 2K17 • 2K20 — All in one place.</p>
+        <p className="text-lg md:text-xl text-white font-semibold mb-8">Persistent online. No resets. Ever.</p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button onClick={scrollToGames} className="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-all duration-200 transform hover:scale-105">Explore the Games</button>
-          <button onClick={scrollToVault} className="px-8 py-4 bg-transparent hover:bg-gray-900 text-white font-semibold rounded-lg border border-gray-700 transition-all duration-200">See the Vision</button>
+          <button onClick={scrollToVault} className="px-8 py-4 bg-black hover:bg-red-900/30 text-red-500 font-semibold rounded-lg border border-red-600 transition-all duration-200">See the Vision</button>
         </div>
 
         <div className="flex justify-center gap-8 mt-16">
           {['2K15', '2K16', '2K17', '2K20'].map((game) => (
-            <span key={game} className="text-gray-500 font-bold text-lg">{game}</span>
+            <span key={game} className="text-red-500 font-bold text-lg">{game}</span>
           ))}
         </div>
       </div>
@@ -69,17 +69,17 @@ function GamesSection() {
   return (
     <section id="games" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-white text-center mb-4">The Games</h2>
-        <p className="text-gray-500 text-center mb-12">Four legendary eras of NBA 2K basketball. Each one a masterpiece. All preserved forever.</p>
+        <h2 className="text-4xl font-bold text-red-600 text-center mb-4">The Games</h2>
+        <p className="text-red-400 text-center mb-12">Four legendary eras of NBA 2K basketball. Each one a masterpiece. All preserved forever.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {games.map((g, i) => (
-            <div key={i} className="relative group overflow-hidden rounded-xl bg-gray-900 border border-gray-800">
-              <img src={g.img} alt={g.name} className="w-full aspect-video object-cover opacity-80" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+            <div key={i} className="relative group overflow-hidden rounded-xl bg-black border border-red-900/30">
+              <img src={g.img} alt={g.name} className="w-full aspect-video object-cover opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-xl font-bold text-white">{g.name}</h3>
-                <p className="text-gray-500 text-sm">{g.year}</p>
-                <p className="text-gray-400 text-sm mt-2">{g.tagline}</p>
+                <h3 className="text-xl font-bold text-red-500">{g.name}</h3>
+                <p className="text-red-400 text-sm">{g.year}</p>
+                <p className="text-white text-sm mt-2">{g.tagline}</p>
               </div>
             </div>
           ))}
@@ -94,26 +94,26 @@ function VisionSection() {
   return (
     <section id="vision" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-white text-center mb-4">One Vault. Four Eras. Infinite Play.</h2>
-        <p className="text-gray-500 text-center mb-12">The revolutionary concept that changes everything.</p>
+        <h2 className="text-4xl font-bold text-red-600 text-center mb-4">One Vault. Four Eras. Infinite Play.</h2>
+        <p className="text-red-400 text-center mb-12">The revolutionary concept that changes everything.</p>
 
-        <div className="bg-black rounded-2xl p-8 mb-12 border border-gray-800">
+        <div className="bg-black rounded-2xl p-8 mb-12 border border-red-900/30">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-2">Legacy Vault</h3>
-            <p className="text-gray-500">Select an era to enter</p>
+            <h3 className="text-2xl font-bold text-red-500 mb-2">Legacy Vault</h3>
+            <p className="text-red-400">Select an era to enter</p>
           </div>
           <div className="grid grid-cols-4 gap-4 mb-8">
             {['2K15', '2K16', '2K17', '2K20'].map((g) => (
-              <button key={g} className="aspect-square rounded-xl bg-gray-900 border border-gray-800 hover:border-red-600 transition-all flex flex-col items-center justify-center">
-                <span className="text-2xl font-bold text-white">{g.slice(-2)}</span>
+              <button key={g} className="aspect-square rounded-xl bg-black border border-red-900/50 hover:border-red-500 hover:bg-red-900/20 transition-all flex flex-col items-center justify-center">
+                <span className="text-2xl font-bold text-red-500">{g.slice(-2)}</span>
               </button>
             ))}
           </div>
-          <p className="text-center text-gray-500 text-sm">Click any era to see the experience</p>
+          <p className="text-center text-red-400 text-sm">Click any era to see the experience</p>
         </div>
 
         <div className="text-center">
-          <a href="https://docs.google.com/document/d/1DEb_W0fxCGWaGN97KcVkVqD1JmZEOUrl5DpCCaayHe0" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-400 font-medium inline-flex items-center gap-2">
+          <a href="https://docs.google.com/document/d/1DEb_W0fxCGWaGN97KcVkVqD1JmZEOUrl5DpCCaayHe0" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-white font-medium inline-flex items-center gap-2 border border-red-600 px-6 py-3 rounded-lg">
             Read the Full Concept Document
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
           </a>
@@ -132,19 +132,19 @@ function VotingSection() {
   return (
     <section className="py-20 bg-black">
       <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-white text-center mb-8">Which Era Do You Want Back Most?</h2>
+        <h2 className="text-3xl font-bold text-red-600 text-center mb-8">Which Era Do You Want Back Most?</h2>
         <div className="space-y-4">
           {Object.entries(votes).map(([game, count]) => {
             const pct = Math.round((count / total) * 100);
             return (
-              <button key={game} onClick={() => setVoted(game)} className={`w-full p-4 rounded-xl border transition-all text-left ${voted === game ? 'bg-red-600/10 border-red-600' : 'bg-black border-gray-800 hover:border-gray-700'}`}>
-                <div className="flex justify-between mb-2"><span className="text-white font-semibold">{game}</span><span className="text-gray-500">{count} votes</span></div>
-                <div className="h-2 bg-gray-900 rounded-full"><div className={`h-full rounded-full transition-all ${voted === game ? 'bg-red-600' : 'bg-gray-700'}`} style={{ width: `${pct}%` }}></div></div>
+              <button key={game} onClick={() => setVoted(game)} className={`w-full p-4 rounded-xl border transition-all text-left ${voted === game ? 'bg-red-600/20 border-red-500' : 'bg-black border-red-900/30 hover:border-red-600'}`}>
+                <div className="flex justify-between mb-2"><span className="text-red-500 font-semibold">{game}</span><span className="text-red-400">{count} votes</span></div>
+                <div className="h-2 bg-black rounded-full border border-red-900/30"><div className={`h-full rounded-full transition-all ${voted === game ? 'bg-red-600' : 'bg-red-900'}`} style={{ width: `${pct}%` }}></div></div>
               </button>
             );
           })}
         </div>
-        <p className="text-gray-500 text-center mt-6">{total} votes cast</p>
+        <p className="text-red-400 text-center mt-6">{total} votes cast</p>
       </div>
     </section>
   );
@@ -158,16 +158,16 @@ function CommunitySection() {
   return (
     <section className="py-20 bg-black">
       <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-white text-center mb-8">Join the Movement</h2>
-        <div className="bg-black rounded-2xl p-8 border border-gray-800 text-center">
+        <h2 className="text-3xl font-bold text-red-600 text-center mb-8">Join the Movement</h2>
+        <div className="bg-black rounded-2xl p-8 border border-red-900/30 text-center">
           <h3 className="text-4xl font-bold text-red-600 mb-2">0+</h3>
-          <p className="text-gray-500 mb-8">fans want the Legacy Vault</p>
+          <p className="text-red-400 mb-8">fans want the Legacy Vault</p>
           <form onSubmit={(e) => { e.preventDefault(); if(email) { setSub(true); setEmail(''); } }} className="flex flex-col sm:flex-row gap-4">
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="flex-1 px-4 py-3 bg-black border border-gray-800 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-red-600" />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="flex-1 px-4 py-3 bg-black border border-red-900/50 rounded-lg text-red-400 placeholder-red-900 focus:outline-none focus:border-red-500" />
             <button type="submit" className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg">{sub ? '✓ Subscribed!' : 'Notify Me'}</button>
           </form>
         </div>
-        <p className="text-gray-600 text-center mt-8 text-sm">Fan-Made Concept • Not Affiliated with 2K Sports or Take-Two Interactive</p>
+        <p className="text-red-600/50 text-center mt-8 text-sm">Fan-Made Concept • Not Affiliated with 2K Sports or Take-Two Interactive</p>
       </div>
     </section>
   );
@@ -176,10 +176,10 @@ function CommunitySection() {
 // ============ FOOTER ============
 function Footer() {
   return (
-    <footer className="py-8 bg-black border-t border-gray-800">
+    <footer className="py-8 bg-black border-t border-red-900/30">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2"><span className="text-xl font-bold text-red-600">2K</span><span className="text-lg font-semibold text-white">Legacy Vault</span></div>
-        <div className="flex gap-6 text-gray-500 text-sm">
+        <div className="flex items-center gap-2"><span className="text-xl font-bold text-red-600">2K</span><span className="text-lg font-bold text-red-600">Legacy Vault</span></div>
+        <div className="flex gap-6 text-red-500 text-sm">
           <button className="hover:text-white">Home</button><button className="hover:text-white">Games</button><button className="hover:text-white">Vault</button><button className="hover:text-white">Community</button>
         </div>
       </div>
@@ -208,14 +208,14 @@ function Chatbot() {
         {isOpen ? <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg> : <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>}
       </button>
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-48px)] bg-black rounded-2xl border border-gray-800 shadow-2xl overflow-hidden">
+        <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-48px)] bg-black rounded-2xl border border-red-600 shadow-2xl overflow-hidden">
           <div className="bg-red-600 px-6 py-4"><h3 className="text-white font-bold text-lg">Vault AI</h3><p className="text-white/70 text-sm">Your Legacy Vault Guide</p></div>
           <div className="p-4 space-y-3 max-h-80 overflow-y-auto">
-            {msgs.map((m, i) => <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[80%] px-4 py-2 rounded-2xl ${m.role === 'user' ? 'bg-red-600 text-white' : 'bg-gray-900 text-gray-300 border border-gray-800'}`}>{m.content}</div></div>)}
-            <div className="flex flex-wrap gap-2 mt-4">{qs.map((q, i) => <button key={i} onClick={() => setInput(q)} className="text-xs px-3 py-1 bg-gray-900 hover:bg-gray-800 text-gray-400 rounded-full border border-gray-800">{q}</button>)}</div>
+            {msgs.map((m, i) => <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[80%] px-4 py-2 rounded-2xl ${m.role === 'user' ? 'bg-red-600 text-white' : 'bg-black text-red-400 border border-red-900/50'}`}>{m.content}</div></div>)}
+            <div className="flex flex-wrap gap-2 mt-4">{qs.map((q, i) => <button key={i} onClick={() => setInput(q)} className="text-xs px-3 py-1 bg-black hover:bg-red-900/30 text-red-500 rounded-full border border-red-900/50">{q}</button>)}</div>
           </div>
-          <div className="p-4 border-t border-gray-800 flex gap-2">
-            <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && send()} placeholder="Ask anything..." className="flex-1 px-4 py-2 bg-gray-900 border border-gray-800 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-red-600 text-sm" />
+          <div className="p-4 border-t border-red-900/50 flex gap-2">
+            <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && send()} placeholder="Ask anything..." className="flex-1 px-4 py-2 bg-black border border-red-900/50 rounded-lg text-red-400 placeholder-red-900 focus:outline-none focus:border-red-500 text-sm" />
             <button onClick={send} className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg></button>
           </div>
         </div>
@@ -227,7 +227,7 @@ function Chatbot() {
 // ============ HOME ============
 function Home() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black text-red-500">
       <Navbar />
       <Hero />
       <GamesSection />

@@ -114,27 +114,74 @@ function GamesSection() {
 function VisionSection() {
   return (
     <section id="vision" className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-red-600 text-center mb-4">One Vault. Four Eras. Infinite Play.</h2>
-        <p className="text-red-400 text-center mb-12">The revolutionary concept that changes everything.</p>
-
-        <div className="bg-black rounded-2xl p-8 mb-12 border border-red-900/30">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-red-500 mb-2">Legacy Vault</h3>
-            <p className="text-red-400">Select an era to enter</p>
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-4xl font-bold text-red-600 text-center mb-12">One Vault. Four Eras. Infinite Play.</h2>
+        <div className="bg-black rounded-2xl p-8 mb-8 border border-red-900/30">
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="flex-1">
+              <p className="text-gray-300 leading-relaxed mb-4">The NBA 2K Legacy Vault is a revolutionary game-within-a-game mode. Launch full, untouched versions of 2K15, 2K16, 2K17, and 2K20 directly inside modern NBA 2K powered by secure containers on persistent online servers.</p>
+              <p className="text-white font-medium mb-2">No more sunsets. No player-base split. No cheating.</p>
+              <p className="text-gray-400 mb-4">Friends list works across every era. Park, Pro-Am, Rec, MyTEAM, MyCAREER all alive forever.</p>
+              <div className="mt-4 p-4 bg-red-900/20 rounded-lg border border-red-900/30">
+                <p className="text-white font-medium">Monetization?</p>
+                <p className="text-gray-400 text-sm">Simple subscription or one-time DLC to unlock the Vault. Cosmetic packs per era. High-margin nostalgia revenue that prints money while keeping the community together.</p>
+              </div>
+            </div>
+            <div className="flex-1 space-y-4">
+              <div className="border-l-2 border-red-600 pl-4">
+                <h4 className="text-red-500 font-bold mb-2">How Licensing Gets Solved</h4>
+                <p className="text-gray-400 text-sm">No rebuilding games from scratch. Expired music, jerseys, and player likenesses are handled through modular asset layers inside each container.</p>
+                <ul className="mt-2 space-y-1 text-gray-400 text-sm">
+                  <li>- Expired music replaced with production libraries</li>
+                  <li>- Jersey and court art as standalone packs</li>
+                  <li>- Player likenesses via neutral overlays</li>
+                  <li>- Zero changes to core gameplay code</li>
+                </ul>
+              </div>
+              <div className="border-l-2 border-red-600 pl-4">
+                <h4 className="text-red-500 font-bold mb-2">How It Scales Without Breaking</h4>
+                <p className="text-gray-400 text-sm">Kubernetes orchestration means the Vault grows with demand automatically.</p>
+                <ul className="mt-2 space-y-1 text-gray-400 text-sm">
+                  <li>- Build once, run anywhere</li>
+                  <li>- Elastic scaling during Throwback events</li>
+                  <li>- Each title in isolated container</li>
+                  <li>- Minimal cost through shared infrastructure</li>
+                </ul>
+              </div>
+              <div className="border-l-2 border-red-600 pl-4">
+                <h4 className="text-red-500 font-bold mb-2">The Pilot Test That Proves Everything</h4>
+                <p className="text-gray-400 text-sm">48-hour NBA 2K16 Throwback Weekend. Budget under $750K.</p>
+                <ul className="mt-2 space-y-1 text-gray-400 text-sm">
+                  <li>- <span className="text-white">Target:</span> 15-20% DAU uplift</li>
+                  <li>- <span className="text-white">Metrics:</span> Session length, VC crossover</li>
+                  <li>- If it hits - full Legacy Vault greenlit</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-4 gap-4 mb-8">
-            {['2K15', '2K16', '2K17', '2K20'].map((g) => (
-              <button key={g} className="aspect-square rounded-xl bg-black border border-red-900/50 hover:border-red-500 hover:bg-red-900/20 transition-all flex flex-col items-center justify-center">
-                <span className="text-2xl font-bold text-red-500">{g.slice(-2)}</span>
+        </div>
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-white mb-2">Experience The Vision</h3>
+          <p className="text-gray-400">See exactly what the Legacy Vault could look like - and vote for your favorite era.</p>
+        </div>
+        <div className="bg-black rounded-2xl p-8 mb-8 border border-red-900/30">
+          <div className="text-center mb-6">
+            <h3 className="text-2xl font-bold text-red-500 mb-2">Legacy Vault</h3>
+            <p className="text-gray-400">Select an era to enter</p>
+          </div>
+          <div className="grid grid-cols-4 gap-4 mb-6">
+            {[{name: '2K15', year: '2014'}, {name: '2K16', year: '2015'}, {name: '2K17', year: '2016'}, {name: '2K20', year: '2019'}].map((g) => (
+              <button key={g.name} className="aspect-square rounded-xl bg-black border border-red-900/50 hover:border-red-500 hover:bg-red-900/20 transition-all flex flex-col items-center justify-center">
+                <span className="text-2xl font-bold text-red-500">{g.name}</span>
+                <span className="text-gray-500 text-sm">{g.year}</span>
               </button>
             ))}
           </div>
-          <p className="text-center text-red-400 text-sm">Click any era to see the experience</p>
+          <p className="text-center text-gray-400 text-sm mb-2">Click any era to see the experience</p>
+          <p className="text-center text-gray-600 text-xs">This is a concept demo showing what the Legacy Vault menu could look like inside NBA 2K</p>
         </div>
-
         <div className="text-center">
-          <a href="https://docs.google.com/document/d/1DEb_W0fxCGWaGN97KcVkVqD1JmZEOUrl5DpCCaayHe0" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-white font-medium inline-flex items-center gap-2 border border-red-600 px-6 py-3 rounded-lg">
+          <a href="https://docs.google.com/document/d/1DEb_W0fxCGWaGN97KcVkVqD1JmZEOUrl5DpCCaayHe0" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-white font-medium inline-flex items-center gap-2 border border-red-600 px-6 py-3 rounded-lg transition-colors">
             Read the Full Concept Document
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
           </a>

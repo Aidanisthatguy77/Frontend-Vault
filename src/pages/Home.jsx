@@ -194,21 +194,39 @@ function VisionSection() {
 // ============ VOTING SECTION ============
 function VotingSection() {
   const [voted, setVoted] = useState(null);
-  const votes = { '2K15': 0, '2K16': 0, '2K17': 0, '2K20': 0 };
-  const total = Object.values(votes).reduce((a, b) => a + b, 0);
+  const [voteCounts, setVoteCounts] = useState({ '2K15': 0, '2K16': 0, '2K17': 0, '2K20': 0 });
+  const total = Object.values(voteCounts).reduce((a, b) => a + b, 0);
+
+  const handleVote = (game) => {
+    setVoteCounts(prev => ({ ...prev, [game]: prev[game] + 1 }));
+    setVoted(game);
+  };
 
   return(
     <section className="py-20 bg-black">
       <div className="max-w-3xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-red-600 text-center mb-8">Which Era Do You Want Back Most?</h2>
         <div className="space-y-4">
-          {Object.entries(votes).map(([game, count]) => {
-            const pct = Math.round((count / total) * 100);
+          {Object.entries(voteCounts).map(([game, count]) => {
+            const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+            const isSelected = voted === game;
             return(
-              <button key={game} onClick={() => setVoted(game)} className={`w-full p-4 rounded-xl border transition-all text-left ${voted === game ? 'bg-red-600/20 border-red-500' : 'bg-black border-red-900/30 hover:border-red-600'}`}>
-                <div className="flex justify-between mb-2"><span className="text-red-500 font-semibold">{game}</span><span className="text-red-400">{count} votes</span></div>
-                <div className="h-2 bg-black rounded-full border border-red-900/30"><div className={`h-full rounded-full transition-all ${voted === game ? 'bg-red-600' : 'bg-red-900'}`} style={{ width: `${pct}%` }}></div></div>
-              </button>
+              <div 
+                key={game} 
+                onClick={() => handleVote(game)}
+                className={`w-full p-4 rounded-xl border transition-all text-left cursor-pointer ${isSelected ? 'bg-red-600/20 border-red-500' : 'bg-black border-red-900/30 hover:border-red-600'}`}
+              >
+                <div className="flex justify-between mb-2">
+                  <span className="text-white font-semibold">{game}</span>
+                  <span className="text-gray-400">{count} votes</span>
+                </div>
+                <div className="h-2 bg-gray-900 rounded-full overflow-hidden">
+                  <div 
+                    className={`h-full rounded-full transition-all ${isSelected ? 'bg-red-600' : 'bg-red-900'}`} 
+                    style={{ width: `${pct}%` }}
+                  ></div>
+                </div>
+              </div>
             );
           })}
         </div>
